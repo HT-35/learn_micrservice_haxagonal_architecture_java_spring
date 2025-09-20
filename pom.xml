@@ -4,14 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     
+    <!-- Cha -->
     <groupId>org.example</groupId>
     <artifactId>Lern_microservice</artifactId>
+
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <!-- Modules Con -->
     <modules>
         <module>order-service</module>
-
+        <module>common</module>
     </modules>
 
     <properties>
@@ -21,8 +24,13 @@
 
  
 
+    <!-- Dependency Management Module sub con -->
+
     <dependencyManagement>
         <dependencies>
+
+            <!-- Order Domain -->
+
             <dependency>
                 <groupId>org.example</groupId>
                 <artifactId>order-domain-core</artifactId>
@@ -59,7 +67,24 @@
                 <version>${project.version}</version>
             </dependency>
 
-         
+
+            <dependency>
+                <groupId>org.example</groupId>
+                <artifactId>order-container</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+
+             <!-- Common -->
+
+            <dependency>
+                <groupId>org.example</groupId>
+                <artifactId>common-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+ 
+
         </dependencies>
     </dependencyManagement>
 </project>
