@@ -60,6 +60,16 @@ order-service/
    mvn spring-boot:run
    ```
 
+## Tạo sơ đồ phụ thuộc Maven
+
+Để tạo sơ đồ phụ thuộc cho các module sử dụng plugin `depgraph-maven-plugin`, hãy chạy lệnh sau ở thư mục gốc dự án:
+
+```bash
+mvn com.github.ferstl:depgraph-maven-plugin:4.0.3:aggregate -DcreateImage=true -DreduceEdges=false -DclasspathScope=compile "-Dincludes=org.example*:*"
+```
+
+Lệnh này sẽ tạo sơ đồ phụ thuộc cho các module có groupId bắt đầu bằng `org.example`.
+
 ## Đóng góp
 
 Vui lòng tạo pull request hoặc issue nếu bạn muốn đóng góp hoặc báo lỗi.
