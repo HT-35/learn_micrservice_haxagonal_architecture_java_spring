@@ -1,10 +1,12 @@
 package org.example.domain.entity;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
-@Data
 @EqualsAndHashCode(callSuper = true)
+@Getter
 public abstract class AggregateRoot<ID> extends BaseEntity<ID> {
-
+	public AggregateRoot(ID id) {
+		super(id);
+	}
 }

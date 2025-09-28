@@ -13,6 +13,8 @@ import lombok.Getter;
 public class Money {
 	private final BigDecimal amount;
 
+	public static final Money ZERO = new Money(BigDecimal.ZERO);
+
 	// check amount lớn hơn không
 	public boolean isGreateThanZero() {
 		return this.amount != null && this.amount.compareTo(BigDecimal.ZERO) > 0;

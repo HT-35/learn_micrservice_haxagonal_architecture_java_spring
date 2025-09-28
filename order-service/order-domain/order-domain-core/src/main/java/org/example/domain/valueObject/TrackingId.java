@@ -1,6 +1,8 @@
-package org.example.domain.valueobject;
+package org.example.domain.valueObject;
 
 import java.util.UUID;
+
+import org.example.domain.valueobject.BaseId;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

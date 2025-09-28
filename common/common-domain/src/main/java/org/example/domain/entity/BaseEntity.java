@@ -1,11 +1,17 @@
 package org.example.domain.entity;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
 @EqualsAndHashCode(callSuper = false)
+@Getter
+@Setter
 public abstract class BaseEntity<ID> {
 	private ID id;
+
+	public BaseEntity(ID id) {
+		this.id = id;
+	}
 
 }

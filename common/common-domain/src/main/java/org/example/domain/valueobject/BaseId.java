@@ -13,4 +13,8 @@ public abstract class BaseId<T> {
 		this.value = value;
 	}
 
+	public T getValue() {
+		return value;
+	}
+
 }
