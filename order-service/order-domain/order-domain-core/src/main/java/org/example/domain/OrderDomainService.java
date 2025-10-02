@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.example.domain.entity.Order;
 import org.example.domain.entity.Restaurant;
+import org.example.domain.event.OrderCancelledEvent;
 import org.example.domain.event.OrderCreatedEvent;
 import org.example.domain.event.OrderPaidEvent;
 
@@ -14,7 +15,7 @@ public interface OrderDomainService {
 
 	void approveOrder(Order order);
 
-	void cancelOrderPayment(Order order, List<String> failureMessages);
+	OrderCancelledEvent cancelOrderPayment(Order order, List<String> failureMessages);
 
 
 	void cancelOrder(Order order, List<String> failureMessages);

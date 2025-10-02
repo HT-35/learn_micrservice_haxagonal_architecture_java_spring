@@ -16,19 +16,19 @@ import lombok.Setter;
 public class OrderItem extends BaseEntity<OrderItemId> {
 
 	private OrderId orderId;
+	// sản phẩm
 	private final Product product;
 	// số lượng
 	private final Integer quantity;
-	// price of product
+	// giá tiền của sản phẩm
 	private final Money price;
-	// subTotal of Product = price * quantity            
+	// thành tiền = price * quantity
 	private final Money subTotal;
 
 	// chỉ có thể trong Order khởi tạo, không thể khởi tạo trực tiếp OrderItem
 	void initializeOrderItem(OrderId orderId, OrderItemId orderItemId) {
 		this.orderId = orderId;
 		super.setId(orderItemId);
-
 	}
 
 	boolean isPriceValid() {
