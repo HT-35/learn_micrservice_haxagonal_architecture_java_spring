@@ -3,6 +3,7 @@ package org.example.domain.entity;
 import java.util.List;
 import java.util.UUID;
 
+import lombok.*;
 import org.example.domain.exception.OrderDomainException;
 import org.example.domain.valueObject.OrderItemId;
 import org.example.domain.valueObject.StreetAddress;
@@ -13,12 +14,8 @@ import org.example.domain.valueobject.OrderId;
 import org.example.domain.valueobject.OrderStatus;
 import org.example.domain.valueobject.RestaurantId;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 @Getter
+@Builder
 public class Order extends AggregateRoot<OrderId> {
 
 	private final OrderId orderId;

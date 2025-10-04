@@ -6,15 +6,15 @@ import lombok.Getter;
 @Getter
 @EqualsAndHashCode(callSuper = false)
 public abstract class BaseId<T> {
+    private final T value;
 
-	private final T value;
 
-	protected BaseId(T value) {
-		this.value = value;
-	}
+    protected BaseId(T value) {
+        this.value = value;
+    }
 
-	public T getValue() {
-		return value;
-	}
+    public T getValue() {
+        return value;
+    }
 
 }

@@ -20,14 +20,22 @@ public class OrderDomainServiceImpl implements OrderDomainService {
 
 	private static final String UTC = "UTC";
 
+	// khởi tạo đơn hàng (đơn hàng chuyển trạng thái từ PENDING sang PENDING)
 	@Override
 	public OrderCreatedEvent validateAndInitiateOrder(Order order, Restaurant restaurant) {
-
 		validateRestaurant(restaurant);
 		setOrderProductInformation(order, restaurant);
 		order.validateOrder();
 		order.initializeOrder();
 		log.info("Order with id : {} is initiated",order.getId().getValue());
+		// trả về sự kiện đơn hàng đã được tạo
+		// để các lớp khác có thể lắng nghe và xử lý sự kiện này
+		// ví dụ: gửi email xác nhận đơn hàng, trừ tiền trong tài khoản khách hàng,..
+		// thời gian tạo sự kiện là thời gian hiện tại
+		// và sử dụng múi giờ UTC để tránh sai lệch múi giờ
+		// vì hệ thống có thể có nhiều người dùng ở nhiều múi giờ khác nhau
+		// nên sử dụng múi giờ chung để tránh sai lệch
+		// tránh việc người dùng ở múi giờ khác nhau nhìn thấy thời gian khác nhau
 		return new OrderCreatedEvent(order, ZonedDateTime.now(ZoneId.of(UTC)));
 	}
 
