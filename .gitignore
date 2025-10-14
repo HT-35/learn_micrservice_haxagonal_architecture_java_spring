@@ -31,6 +31,10 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+/infrastructure/docker-compose/volumes/kafka/broker-1
+/infrastructure/docker-compose/volumes/kafka/broker-2
+/infrastructure/docker-compose/volumes/kafka/broker-3
+
 ### VS Code ###
 .vscode/
 

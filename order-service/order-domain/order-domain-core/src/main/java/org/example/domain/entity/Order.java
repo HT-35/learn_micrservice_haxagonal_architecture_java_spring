@@ -3,7 +3,6 @@ package org.example.domain.entity;
 import java.util.List;
 import java.util.UUID;
 
-import lombok.*;
 import org.example.domain.exception.OrderDomainException;
 import org.example.domain.valueObject.OrderItemId;
 import org.example.domain.valueObject.StreetAddress;
@@ -13,6 +12,9 @@ import org.example.domain.valueobject.Money;
 import org.example.domain.valueobject.OrderId;
 import org.example.domain.valueobject.OrderStatus;
 import org.example.domain.valueobject.RestaurantId;
+
+import lombok.Builder;
+import lombok.Getter;
 
 @Getter
 @Builder
@@ -93,38 +95,28 @@ public class Order extends AggregateRoot<OrderId> {
 		}
 	}
 
-	public Order(Builder builder) {
-		super(builder.orderId);
-		this.orderId = builder.orderId;
-		this.customerId = builder.customerId;
-		this.restaurantId = builder.restaurantId;
-		this.streetAddress = builder.streetAddress;
-		this.price = builder.price;
-		this.trackingId = builder.trackingId;
-		this.orderStatus = builder.orderStatus;
-		this.items = builder.items;
-		this.failureMessages = builder.failureMessages;
+	@Builder
+	public Order(OrderId orderId,
+			CustomerId customerId,
+			RestaurantId restaurantId,
+			StreetAddress streetAddress,
+			Money price,
+			TrackingId trackingId,
+			OrderStatus orderStatus,
+			List<OrderItem> items,
+			List<String> failureMessages) {
+		super(orderId);
+		this.orderId = orderId;
+		this.customerId = customerId;
+		this.restaurantId = restaurantId;
+		this.streetAddress = streetAddress;
+		this.price = price;
+		this.trackingId = trackingId;
+		this.orderStatus = orderStatus;
+		this.items = items;
+		this.failureMessages = failureMessages;
 	}
 
-	public static Builder newBuilder() {
-		return new Builder();
-	}
-
-	@Getter
-	@Setter
-	@AllArgsConstructor
-	@NoArgsConstructor
-	public static final class Builder {
-		private OrderId orderId;
-		private CustomerId customerId;
-		private RestaurantId restaurantId;
-		private StreetAddress streetAddress;
-		private Money price;
-		private TrackingId trackingId;
-		private OrderStatus orderStatus;
-		private List<OrderItem> items;
-		private List<String> failureMessages;
-	}
 
 	public boolean validateOrder(Order order) {
 		if (order.getStreetAddress() == null) {
@@ -147,7 +139,6 @@ public class Order extends AggregateRoot<OrderId> {
 	 * Sau khi thanh toán thì status là paid. Có thể cho phép hủy đơn hàng hoặc là
 	 * approve
 	 */
-
 	// phương thức thanh toán:
 	public void pay() {
 		if (this.orderStatus != null && this.orderStatus == OrderStatus.PENDING) {

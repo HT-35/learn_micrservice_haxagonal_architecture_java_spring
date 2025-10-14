@@ -4,6 +4,8 @@ import org.example.domain.dto.create.CreateOrderCommand;
 import org.example.domain.dto.create.CreateOrderRes;
 import org.example.domain.dto.create.OrderAddress;
 import org.example.domain.dto.message.RestaurantApprovalResponse;
+import org.example.domain.dto.track.TrackOrderQuery;
+import org.example.domain.dto.track.TrackOrderResponse;
 import org.example.domain.entity.Order;
 import org.example.domain.entity.OrderItem;
 import org.example.domain.entity.Product;
@@ -52,11 +54,12 @@ public class OrderDataMapper {
                 address.getCity());
     }
 
-    public CreateOrderRes orderToCreateOrderRes(Order order) {
+    public CreateOrderRes orderToCreateOrderRes(Order order, String message) {
         return CreateOrderRes
                 .builder()
                 .orderStatus(order.getOrderStatus())
                 .orderTrackingId(order.getTrackingId().getValue())
+                .message(message)
                 .build();
 
     }
@@ -72,6 +75,14 @@ public class OrderDataMapper {
                                 .quantity(OrItem.getQuantity())
                                 .subTotal(new Money(OrItem.getSubTotal()))
                                 .build()).collect(Collectors.toList());
+    }
+
+    public TrackOrderResponse orderToTrackOrder(@Valid Order order) {
+        return TrackOrderResponse.builder()
+                .orderTrackingId(order.getTrackingId().getValue())
+                .orderStatus(order.getOrderStatus())
+                .message(order.getFailureMessages())
+                .build();
     }
 
 }
