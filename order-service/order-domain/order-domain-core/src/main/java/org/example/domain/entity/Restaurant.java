@@ -35,7 +35,7 @@
 //		private Builder() {
 //		}
 //
-//		public Builder restaurantId(@javax.validation.constraints.NotNull RestaurantId val) {
+//		public Builder restaurantId(@jakarta.validation.constraints.NotNull RestaurantId val) {
 //			restaurantId = val;
 //			return this;
 //		}
@@ -59,11 +59,12 @@
 
 package org.example.domain.entity;
 
-import lombok.Builder;
-import lombok.Getter;
+import java.util.List;
+
 import org.example.domain.valueobject.RestaurantId;
 
-import java.util.List;
+import lombok.Builder;
+import lombok.Getter;
 
 @Getter
 public class Restaurant extends AggregateRoot<RestaurantId> {

@@ -27,7 +27,7 @@
     </modules>
 
     <properties>
-        <maven.compiler.release>22</maven.compiler.release>
+        <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <mockito.version>4.3.1</mockito.version>
@@ -39,7 +39,6 @@
 
     </properties>
 
- 
 
     <!-- Dependency Management Module sub con -->
 
@@ -117,7 +116,7 @@
                 <version>${project.version}</version>
             </dependency>
 
-             <!-- Common -->
+            <!-- Common -->
 
             <dependency>
                 <groupId>org.example</groupId>

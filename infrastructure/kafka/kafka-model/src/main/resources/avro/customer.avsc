@@ -1,5 +1,5 @@
 {
-  "namespace": "com.food.ordering.system.kafka.order.avro.model",
+  "namespace": "org.example.kafka.order.avro.model",
   "type": "record",
   "name": "CustomerAvroModel",
   "fields": [

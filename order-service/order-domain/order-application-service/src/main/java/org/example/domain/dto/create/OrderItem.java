@@ -1,12 +1,12 @@
 package org.example.domain.dto.create;
 
 import java.math.BigDecimal;
-import java.util.UUID;
+
+import org.example.domain.valueobject.ProductId;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import org.example.domain.valueobject.ProductId;
 
 @Getter
 @Builder

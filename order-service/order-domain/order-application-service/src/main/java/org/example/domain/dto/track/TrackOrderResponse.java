@@ -3,10 +3,9 @@ package org.example.domain.dto.track;
 import java.util.List;
 import java.util.UUID;
 
-import javax.validation.constraints.NotNull;
-
 import org.example.domain.valueobject.OrderStatus;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

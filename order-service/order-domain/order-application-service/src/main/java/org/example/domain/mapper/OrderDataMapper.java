@@ -1,10 +1,12 @@
 package org.example.domain.mapper;
 
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
+
 import org.example.domain.dto.create.CreateOrderCommand;
 import org.example.domain.dto.create.CreateOrderRes;
 import org.example.domain.dto.create.OrderAddress;
-import org.example.domain.dto.message.RestaurantApprovalResponse;
-import org.example.domain.dto.track.TrackOrderQuery;
 import org.example.domain.dto.track.TrackOrderResponse;
 import org.example.domain.entity.Order;
 import org.example.domain.entity.OrderItem;
@@ -12,14 +14,10 @@ import org.example.domain.entity.Product;
 import org.example.domain.entity.Restaurant;
 import org.example.domain.valueObject.StreetAddress;
 import org.example.domain.valueobject.Money;
-import org.example.domain.valueobject.ProductId;
 import org.springframework.stereotype.Component;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 
 @Component
 public class OrderDataMapper {

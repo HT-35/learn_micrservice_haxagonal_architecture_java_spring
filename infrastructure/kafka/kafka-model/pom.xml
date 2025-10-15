@@ -21,7 +21,7 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.avro</groupId>             
+                <groupId>org.apache.avro</groupId>
                 <artifactId>avro-maven-plugin</artifactId>
                 <version>${avro.version}</version>
                 <configuration>
